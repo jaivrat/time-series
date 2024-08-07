@@ -1,0 +1,21 @@
+name: tseries
+channels:
+  - default
+dependencies:
+  - pip
+  - python=3.8
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn
+  - joblib
+  - matplotlib=3.2.1
+  - pytest>=5.3.2,<6.0.0
+  - setuptools>=41.4.0,<42.0.0
+  - wheel>=0.33.6,<0.34.0
+  - notebook
+  - pip:
+    # For pip packages
+    - pyfolio
+    - yfinance
+prefix: $HOME/anaconda3/envs/tseries
