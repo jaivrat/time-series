@@ -18,4 +18,5 @@ dependencies:
     # For pip packages
     - pyfolio
     - yfinance
+    - plotly
 prefix: $HOME/anaconda3/envs/tseries
