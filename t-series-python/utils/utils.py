@@ -1,4 +1,5 @@
 import numpy as np
+from statsmodels.tsa.stattools import adfuller
 
 def plotting(title, data, x, y, x_label, y_label):
     """General function to plot the passenger data."""
@@ -10,4 +11,12 @@ def plotting(title, data, x, y, x_label, y_label):
 
     fig.show()
 
+
+def test_adf(sequence):
+    res = adfuller(sequence)
+    print('Statistic: ', res[0])
+    print('p-value: ', res[1])
+    print('critical values:')
+    for threshold, statistic in res[4].items():
+        print('\t%s: %.2f' % (threshold, statistic))
 
