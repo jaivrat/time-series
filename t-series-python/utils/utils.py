@@ -13,7 +13,11 @@ def plotting(title, data, x, y, x_label, y_label):
     fig.show()
 
 
+#### Augmented Dickey-Fuller (ADF) test
+# H0: Series is non-stationary
+
 def test_adf(sequence):
+    # H0: Series is non-stationary
     res = adfuller(sequence)
     print('Statistic: ', res[0])
     print('p-value: ', res[1])
