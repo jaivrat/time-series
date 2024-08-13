@@ -1,5 +1,6 @@
 import numpy as np
 from statsmodels.tsa.stattools import adfuller
+import plotly.express as px
 
 def plotting(title, data, x, y, x_label, y_label):
     """General function to plot the passenger data."""
