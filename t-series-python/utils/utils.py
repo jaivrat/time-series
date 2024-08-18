@@ -1,6 +1,7 @@
 import numpy as np
 from statsmodels.tsa.stattools import adfuller
 import plotly.express as px
+import plotly.graph_objects as go
 import pandas as pd
 
 
@@ -36,4 +37,24 @@ def test_adf(sequence):
     print('critical values:')
     for threshold, statistic in res[4].items():
         print('\t%s: %.2f' % (threshold, statistic))
+
+
+def plot_fcast(train_df, test_df, forecasts, title):
+    '''
+    To plot the forecasts
+    '''
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x = train_df["month"], y = train_df["passengers"], name = "Train"))
+    fig.add_trace(go.Scatter(x = test_df["month"], y = test_df["passengers"], name = "Test"))
+    fig.add_trace(go.Scatter(x = test_df["month"], y = forecasts, name = "Forecast"))
+    fig.update_layout(template="simple_white", 
+                      font=dict(size = 18), 
+                      title_text = title,
+                      #width=650,
+                      title_x = 0.5,
+                      #height = 400,
+                      xaxis_title = "Date",
+                      yaxis_title = "Passenger Volume"
+                     )
+    return fig.show()
 
