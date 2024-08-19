@@ -58,3 +58,29 @@ def plot_fcast(train_df, test_df, forecasts, title):
                      )
     return fig.show()
 
+def plot_fcast1_and_2(train_df, test_df, forecasts1, forecast1_name, forecasts2, forecasts2_name, title):
+    '''
+    To plot the forecasts
+    '''
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x = train_df["month"], y = train_df["passengers"], name = "Train"))
+    fig.add_trace(go.Scatter(x = test_df["month"], y = test_df["passengers"], name = "Test"))
+    fig.add_trace(go.Scatter(x = test_df["month"], y = forecasts1, name = forecast1_name))
+    fig.add_trace(go.Scatter(x = test_df["month"], y = forecasts2, name = forecasts2_name))
+    fig.update_layout(template="simple_white", 
+                      font=dict(size = 18), 
+                      title_text = title,
+                      #width=650,
+                      title_x = 0.5,
+                      #height = 400,
+                      xaxis_title = "Date",
+                      yaxis_title = "Passenger Volume"
+                     )
+    return fig.show()
+
+
+def split_to_train_test(data, pct = 0.20):
+    # Split the data into test and train sets (20% split)
+    train_df = data.iloc[: -int(len(data) * pct)]
+    test_df  = data.iloc[-int(len(data) * pct):]
+    return train_df, test_df
