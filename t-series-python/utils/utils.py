@@ -39,13 +39,13 @@ def test_adf(sequence):
         print('\t%s: %.2f' % (threshold, statistic))
 
 
-def plot_fcast(train_df, test_df, forecasts, title):
+def plot_fcast(train_df, test_df, forecasts, title, column = "passengers"):
     '''
     To plot the forecasts
     '''
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x = train_df["month"], y = train_df["passengers"], name = "Train"))
-    fig.add_trace(go.Scatter(x = test_df["month"], y = test_df["passengers"], name = "Test"))
+    fig.add_trace(go.Scatter(x = train_df["month"], y = train_df[column], name = "Train"))
+    fig.add_trace(go.Scatter(x = test_df["month"], y = test_df[column], name = "Test"))
     fig.add_trace(go.Scatter(x = test_df["month"], y = forecasts, name = "Forecast"))
     fig.update_layout(template="simple_white", 
                       font=dict(size = 18), 
