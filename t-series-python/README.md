@@ -1,4 +1,5 @@
 # time-series in python - a crash course
+# Done while watching through Egor Howell Thanks - https://www.youtube.com/watch?v=_Tc2IDEzbDE 
 
 
 ` conda env create --file tseries.yaml `
