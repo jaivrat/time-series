@@ -20,4 +20,5 @@ dependencies:
     - pyfolio
     - yfinance
     - plotly
+    - pmdarima
 prefix: $HOME/anaconda3/envs/tseries

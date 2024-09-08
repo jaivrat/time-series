@@ -8,4 +8,4 @@
 
 ` python -m ipykernel install --user --name=tseries`
 
-`conda env update --file tseries-env.yaml --prune`
+`conda env update --file tseries.yaml --prune`
